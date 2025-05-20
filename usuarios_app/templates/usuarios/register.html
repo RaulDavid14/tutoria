@@ -1,15 +1,36 @@
 {% extends 'core/base.html' %}
 
-
-{% block titulo %}{% endblock titulo %}
-
+{% block titulo %}Reístrate{% endblock titulo %}
 
 {% block body %}
-    <h2>Registro de Usuario</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Registrar</button>
-    </form>
+    <div class="row">
+        <div class="container-fluid">
+            <h2>Regístrate</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-floating mb-3">
+                    {{ form.codigo }}
+                    <label for="{{ form.codigo.id_for_label }}">Código de estudiante</label>
+                    {{ form.codigo.errors }}
+                </div>
+                <div class="form-floating mb-3">
+                    {{ form.email }}
+                    <label for="{{ form.email.id_for_label }}">Correo institucional</label>
+                    {{ form.email.errors }}
+                </div>
+                <div class="form-floating mb-3">
+                    {{ form.confirm_password }}
+                    <label for="{{ form.confirm_password.id_for_label }}">Contraseña</label>
+                    {{ form.confirm_password.errors }}
+                </div>
+                <div class="form-floating mb-3">
+                    {{ form.password }}
+                    <label for="{{ form.password.id_for_label }}">Confirmar contraseña</label>
+                    {{ form.password.errors }}
+                </div>
+                <button class= "btn btn-outline-primary" type="submit">Registrar</button>
+            </form>
+        </div>
+    </div>
 
 {% endblock body %}

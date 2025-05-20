@@ -2,9 +2,25 @@ from django import forms
 from usuarios_app.models.usuario import UsuarioModel
 
 class RegisterForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput)
-
+    password = forms.CharField(widget=forms.PasswordInput(attrs={
+            'class' : 'form-control'
+            ,'placeholder' : ''
+        }))
+    confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class' : 'form-control'
+        ,'placeholder' : ''
+    }))
+    
     class Meta:
         model = UsuarioModel
-        exclude = ['id']
-        
+        fields = ['codigo', 'email']
+        widgets = {
+            'codigo': forms.NumberInput(attrs={
+                'class': 'form-control'
+                ,'placeholder' : ''
+            }),
+            'email': forms.EmailInput(attrs={
+                'class': 'form-control'
+                ,'placeholder' : ''
+            }),
+        }

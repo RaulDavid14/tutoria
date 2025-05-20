@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block titulo %}Tutorito{% endblock titulo %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'landing/css/index.css' %}">
+{% endblock links %}
+
+{% block body %}
+  <section class="hero">
+    <h1>Bienvenido a Tutorías Académicas</h1>
+    <p>Gestión sencilla y rápida de tus trámites académicos</p>
+    <div>
+      <a href="{% url 'register' %}" class="btn btn-light btn-lg">Registrarse</a>
+      <a href="{% url 'login' %}" class="btn btn-outline-light btn-lg">Iniciar Sesión</a>
+    </div>
+  </section>
+
+  <section class="tramites container">
+    <h2 class="text-center mb-4">¿Qué trámites puedes realizar?</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Agendar tutoría</h5>
+            <p class="card-text">Reserva una sesión con tu tutor académico según tu horario disponible.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Seguimiento académico</h5>
+            <p class="card-text">Consulta el avance de tus tutorías y observaciones realizadas por tus tutores.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Solicitud de asesoría</h5>
+            <p class="card-text">Solicita apoyo académico en áreas específicas donde tengas dudas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Tutorías Académicas. Todos los derechos reservados.</p>
+  </footer>
+
+{% endblock body %}
+    
