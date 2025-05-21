@@ -5,7 +5,7 @@ class RegisterForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput(attrs={
             'class' : 'form-control'
             ,'placeholder' : ''
-        }))
+    }))
     confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={
         'class' : 'form-control'
         ,'placeholder' : ''

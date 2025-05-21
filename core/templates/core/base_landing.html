@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+
+
+{% block titulo %}{% endblock titulo %}
+
+{% block body %}
+    {% include 'components/navbar_landing.html' %}    
+
+    {% block content %}
+    {% endblock content %}
+        
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+          <small>&copy; 2025 Tutorito Centro Universitario de Arte Arquitectura y Diseño</small>
+        </div>
+    </footer>
+{% endblock body %}

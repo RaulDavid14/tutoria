@@ -1,4 +1,4 @@
-{% extends 'core/base.html' %}
+{% extends 'core/base_landing.html' %}
 {% load static %}
 
 {% block titulo %}Tutorito{% endblock titulo %}
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{% static 'landing/css/index.css' %}">
 {% endblock links %}
 
-{% block body %}
+{% block content %}
   <section class="hero">
     <h1>Bienvenido a Tutorías Académicas</h1>
     <p>Gestión sencilla y rápida de tus trámites académicos</p>
@@ -47,9 +47,5 @@
     </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Tutorías Académicas. Todos los derechos reservados.</p>
-  </footer>
-
-{% endblock body %}
+{% endblock content %}
     

@@ -1,21 +1,43 @@
-{% extends 'core/base.html' %}
+{% extends 'core/base_landing.html' %}
 
-{% block titulo %}Bienvenido al sitio{% endblock titulo %}
+{% block titulo %}Bienvenido de vuelta{% endblock titulo %}
 
-{% block body %}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 col-lg-6">
-            Hola mundo
+{% block content %}
+<div class="container-fluid min-vh-100 d-flex align-items-center">
+    <div class="row w-100">
+        <!-- Columna izquierda (imagen o mensaje de bienvenida futuro) -->
+        <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center bg-light">
+            <div class="text-center p-4">
+                <h1 class="display-5">Hola mundo</h1>
+                <p class="text-muted">Aquí puedes colocar una imagen o bienvenida.</p>
+            </div>
         </div>
-        <div class="col-12 col-lg-6">
-            <h2>Iniciar Sesión</h2>
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Entrar</button>
-            </form>
+
+        <!-- Columna derecha (formulario) -->
+        <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
+            <div class="w-100" style="max-width: 400px;">
+                <h2 class="mb-4 text-center">Iniciar Sesión</h2>
+                <form method="post" novalidate>
+                    {% csrf_token %}
+
+                    <div class="form-floating mb-3">
+                        {{ form.email }}
+                        <label for="{{ form.email.id_for_label }}">Correo electrónico</label>
+                        <div class="text-danger small">{{ form.email.errors }}</div>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        {{ form.password }}
+                        <label for="{{ form.password.id_for_label }}">Contraseña</label>
+                        <div class="text-danger small">{{ form.password.errors }}</div>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">Entrar</button>
+                    </div>
+                </form>
+            </div>
         </div>        
     </div>
 </div>
-{% endblock body %}
+{% endblock content %}
