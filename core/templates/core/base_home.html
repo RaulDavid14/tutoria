@@ -1,0 +1,52 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'core/vendor/css/sidebar.css' %}">
+{% endblock links %}
+
+{% block titulo %}{% endblock titulo %}
+
+{% block body %}
+    <div class="sidebar" id="sidebar">
+        <div class="d-flex justify-content-end p-2">
+            <button class="btn btn-light" id="toggleSidebar">
+                <img src="{% static 'core/vendor/img/justify.svg' %}" alt="menu"> 
+            </button>
+        </div>
+        <ul class="nav flex-column p-3 d-flex">
+            <li class="nav-item mt-5">
+                <a class="nav-link" href="">Inicio</a>
+            </li>
+            <li class="nav-item mt-5">
+                <a class="nav-link" href="">Clientes</a>
+            </li>
+            <li class="nav-item  mt-5">
+                <a class="nav-link" href="">Productos</a>
+            </li>
+            <li class="na05v-item  mt-5">
+                <a class="nav-link" href="">Facturas</a>
+            </li>
+            <li class="nav-item mt-5">
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="nav-link btn btn-link p-0" style="text-decoration: none;">
+                        Cerrar Sesión
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="container-fluid p-4">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div>
+    </div>
+{% endblock body %}
+
+{% block scripts %}
+    <script src="{% static 'core/vendor/js/sidebar.js' %}"></script>
+{% endblock scripts %}

@@ -7,4 +7,6 @@ class LoginUsuarioView(LoginView):
     template_name = 'usuarios/login.html'
     authentication_form = LoginForm
     redirect_authenticated_user = True
-    success_url = reverse_lazy('home')
+    
+    def get_success_url(self):
+        return reverse_lazy('home')
