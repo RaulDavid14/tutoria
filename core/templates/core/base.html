@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" href="{% static 'core/bootstrap/css/bootstrap.min.css' %}">
+    {% block links %}
+    {% endblock links %}
 
     <title>{% block titulo %}{% endblock titulo %}</title>
 
-    {% block links %}
-    {% endblock links %}
         
 </head>
 <body>
     {% block body %}
     {% endblock body %}
     
+    <script type="module" src="{% static 'core/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'core/bootstrap/js/bootstrap.min.js' %}"></script>
     {% block scripts %}
     {% endblock scripts %}
-    <script src="{% static 'core/bootstrap/js/bootstrap.min.js' %}"></script>
-    <script type="module" src="{% static 'core/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>

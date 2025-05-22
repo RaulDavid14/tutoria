@@ -6,9 +6,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = PROJECT_KEY
 
 
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+
 
 INSTALLED_APPS = [
     'core',
+    'catalogos_app',
     'usuarios_app',
     'home_app',
     'landing_app',

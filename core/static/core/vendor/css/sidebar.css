@@ -1,0 +1,31 @@
+.sidebar {
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: #343a40;
+    transition: all 0.3s;
+}
+.sidebar.collapsed {
+    width: 80px;
+}
+.sidebar .nav-link {
+    color: white;
+    transition: opacity 0.3s;
+}
+.sidebar.collapsed .nav-link {
+    opacity: 0; 
+    pointer-events: none; 
+}
+.sidebar .nav-link:hover {
+    color: #ffc107;
+}
+.main-content {
+    margin-left: 250px;
+    transition: margin-left 0.3s;
+}
+.main-content.collapsed {
+    margin-left: 80px;
+}

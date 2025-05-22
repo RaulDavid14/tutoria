@@ -3,7 +3,7 @@ from django import forms
 
 
 class LoginForm(AuthenticationForm):
-    email = forms.EmailField(
+    username = forms.EmailField(
         label='Correo Electrónicos'
         ,widget=forms.EmailInput(attrs={
             'class' : 'form-control'
