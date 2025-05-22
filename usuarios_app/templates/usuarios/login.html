@@ -1,5 +1,5 @@
 {% extends 'core/base_landing.html' %}
-
+{% load static %}
 {% block titulo %}Bienvenido de vuelta{% endblock titulo %}
 
 {% block content %}
@@ -7,8 +7,7 @@
     <div class="row w-100">
         <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center bg-light">
             <div class="text-center p-4">
-                <h1 class="display-5">Hola mundo</h1>
-                <p class="text-muted">Aquí puedes colocar una imagen o bienvenida.</p>
+                <img src="{% static 'usuarios/img/tutorito.png' %}" alt="tutorito">
             </div>
         </div>
 
