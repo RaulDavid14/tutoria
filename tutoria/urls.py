@@ -6,4 +6,5 @@ urlpatterns = [
     path('home/', include('home_app.urls')),
     path('', include('usuarios_app.urls')),
     path('', include('landing_app.urls')),
+    path('panel/', include('panel_app.urls')),
 ]

@@ -12,6 +12,7 @@ LOGIN_REDIRECT_URL = 'home'
 
 INSTALLED_APPS = [
     'core',
+    'panel_app',
     'catalogos_app',
     'usuarios_app',
     'home_app',
