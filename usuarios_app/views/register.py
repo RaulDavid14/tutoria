@@ -7,8 +7,11 @@ class RegisterUserAV(CreateView):
     template_name = 'usuarios/register.html'
     success_url = reverse_lazy('login')
     form_class = RegisterForm
-
+    
     def form_valid(self, form):
-        form.save()
+        usuario = form.save(commit=False)
+        usuario.rol = 'estudiante'
+        
+        usuario.save()
         return redirect(self.success_url)
     
