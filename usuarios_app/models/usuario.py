@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from usuarios_app.managers.usuario import UsuarioManager
 
 class UsuarioModel(AbstractBaseUser, PermissionsMixin):
-    codigo = models.BigIntegerField(null=True)
+    codigo = models.BigIntegerField(null=True, unique=True)
     nombres = models.CharField(max_length=255, null=True)
     apellido_paterno = models.CharField(max_length=60, null=True)
     apellido_materno = models.CharField(max_length=60, null=True,blank=True)
@@ -13,7 +13,13 @@ class UsuarioModel(AbstractBaseUser, PermissionsMixin):
     celular = models.BigIntegerField(null=True)
     telefono = models.BigIntegerField(null=True, blank=True)
     
-    rol = models.CharField(max_length=14, null=True)
+    ROLE_CHOICES = [
+        ('estudiante', 'Estudiante'),
+        ('docente', 'Docente'),
+        ('admin', 'Administrador'),
+    ]
+    
+    rol = models.CharField(max_length=20, choices=ROLE_CHOICES)
     
     fecha_creacion = models.DateTimeField(auto_now_add=True) 
     fecha_actualizacion = models.DateTimeField(auto_now=True)
@@ -23,11 +29,10 @@ class UsuarioModel(AbstractBaseUser, PermissionsMixin):
     is_superuser = models.BooleanField(default=False)
     
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['nombres','apellido_paterno']
     
     objects = UsuarioManager()
     
     class Meta:
         db_table = 'usuarios'
-        verbose_name = 'Usuario'
-        verbose_name_plural = 'Usuarios'
+        verbose_name = 'usuario'
+        verbose_name_plural = 'usuarios'
