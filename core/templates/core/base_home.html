@@ -52,13 +52,31 @@
                     </form>
                 </li>
             {% endif %}
-
+            
+            {% if user.rol == 'tutor' %}
+                
+            {% endif %}
+                
             {% if user.rol == 'admin' %}
                 <li class="nav-item mt-5">
                     <a class="nav-link" href="{% url 'dashboard_panel' %}">Inicio</a>
                 </li>
                 <li class="nav-item mt-5">
-                    <a class="nav-link" href="">Docentes</a>
+                    <div class="accordion" id="accordionTutor">
+                        <div class="accordion-item border-0">
+                            <h2 class="accordion-header" id="headingTutor">
+                                <button class="accordion-button collapsed p-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTutor" aria-expanded="false" aria-controls="collapseTutor">
+                                    <span class="nav-link">Docentes</span>
+                                </button>
+                            </h2>
+                            <div id="collapseTutor" class="accordion-collapse collapse" aria-labelledby="headingTutor" data-bs-parent="#accordionTutor">
+                                <div class="accordion-body py-1 px-3">
+                                    <a class="nav-link" href="">Altas</a>
+                                    <a class="nav-link" href="">Listado</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </li>
                 <li class="nav-item mt-5">
                     <a class="nav-link" href="{% url 'panel_catalogos' %}">Catálogos</a>
