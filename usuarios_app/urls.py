@@ -6,7 +6,7 @@ from django.contrib.auth.views import LogoutView
 from usuarios_app.views.loginsuperuser import LoginSuperStaffView
 
 urlpatterns = [
-    path('datosgenerales', DatosGenerales.as_view(), name='datosgenerales'),
+    path('home/datosgenerales', DatosGenerales.as_view(), name='datosgenerales'),
     path('login', LoginUsuarioView.as_view(), name='login'),
     path('panel/login', LoginSuperStaffView.as_view(), name='panel_login'),
     path('register', RegisterUserAV.as_view(), name='register'),
