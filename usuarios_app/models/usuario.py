@@ -15,7 +15,7 @@ class UsuarioModel(AbstractBaseUser, PermissionsMixin):
     
     ROLE_CHOICES = [
         ('estudiante', 'Estudiante'),
-        ('docente', 'Docente'),
+        ('tutor', 'Tutor'),
         ('admin', 'Administrador'),
     ]
     

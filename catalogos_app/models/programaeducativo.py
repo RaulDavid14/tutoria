@@ -5,3 +5,6 @@ class CatProgramaEducativoModel(CatalogoModel):
         db_table = 'programa_educativo'
         verbose_name = 'Carrera'
         verbose_name_plural = 'Carreras'
+    
+    def __str__(self):
+        return f'{self.nombre}'

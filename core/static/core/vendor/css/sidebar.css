@@ -29,3 +29,41 @@
 .main-content.collapsed {
     margin-left: 80px;
 }
+
+.sidebar.collapsed .accordion-button,
+.sidebar.collapsed .accordion-body {
+    display: none !important;
+}
+
+.sidebar.collapsed .accordion-button::after {
+    display: none !important;
+}
+
+.sidebar .accordion-button {
+    background-color: transparent;
+    color: white;
+    padding-left: 0.75rem;
+    box-shadow: none;
+}
+
+.sidebar .accordion-item {
+    background-color: #343a40;
+    border: none;
+}
+
+.sidebar .accordion-button::after {
+    filter: invert(1);
+}
+
+.sidebar .accordion-button:hover {
+    color: #ffc107;
+}
+
+.sidebar .accordion-body .nav-link {
+    color: white;
+    padding-left: 1.25rem;
+}
+
+.sidebar .accordion-body .nav-link:hover {
+    color: #ffc107;
+}
