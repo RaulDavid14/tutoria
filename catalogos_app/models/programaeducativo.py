@@ -1,7 +1,7 @@
 from catalogos_app.models.catalogo import CatalogoModel
 
-class CatCarreraModel(CatalogoModel):
+class CatProgramaEducativoModel(CatalogoModel):
     class Meta:
-        db_table = 'carreras'
+        db_table = 'programa_educativo'
         verbose_name = 'Carrera'
         verbose_name_plural = 'Carreras'
