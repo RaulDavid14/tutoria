@@ -54,7 +54,14 @@
             {% endif %}
             
             {% if user.rol == 'tutor' %}
-                
+                <li class="nav-item mt-5">
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="nav-link btn btn-link p-0" style="text-decoration: none;">
+                            Cerrar Sesión
+                        </button>
+                    </form>
+                </li>
             {% endif %}
                 
             {% if user.rol == 'admin' %}
@@ -71,7 +78,7 @@
                             </h2>
                             <div id="collapseTutor" class="accordion-collapse collapse" aria-labelledby="headingTutor" data-bs-parent="#accordionTutor">
                                 <div class="accordion-body py-1 px-3">
-                                    <a class="nav-link" href="">Altas</a>
+                                    <a class="nav-link" href="{% url 'register_docente' %}">Altas</a>
                                     <a class="nav-link" href="">Listado</a>
                                 </div>
                             </div>

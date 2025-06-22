@@ -9,4 +9,9 @@ class LoginUsuarioView(LoginView):
     redirect_authenticated_user = True
     
     def get_success_url(self):
-        return reverse_lazy('home')
+        user = self.request.user
+        
+        if hasattr(user, 'cambiar_password') and user.cambiar_password: 
+            return reverse_lazy('change_password')
+        else:
+            return reverse_lazy('home')

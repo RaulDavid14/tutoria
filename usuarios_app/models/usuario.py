@@ -12,6 +12,7 @@ class UsuarioModel(AbstractBaseUser, PermissionsMixin):
     estado_civil = models.CharField(verbose_name=10, null=True)
     celular = models.BigIntegerField(null=True)
     telefono = models.BigIntegerField(null=True, blank=True)
+    cambiar_password = models.BooleanField(default=False)
     
     ROLE_CHOICES = [
         ('estudiante', 'Estudiante'),
