@@ -2,7 +2,7 @@ from django.db import models
 from usuarios_app.models.usuario import UsuarioModel
 
 class DatosSocioeconomicosModel(models.Model):
-    usuario = models.OneToOneField(UsuarioModel, on_delete=models.CASCADE)
+    usuario = models.OneToOneField(UsuarioModel, on_delete=models.CASCADE, related_name='datos_socieconomicos')
     trabaja = models.BooleanField(default=False)
     nombre_trabajo = models.CharField(max_length=100)
     apoyo_economico = models.BooleanField(default=True)

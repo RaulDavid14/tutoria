@@ -3,9 +3,9 @@ from usuarios_app.models.alumno import AlumnoModel
 from usuarios_app.models.docente import DocenteModel
 from tutoria_app.managers.sesion import SesionManager
 
-class SesionModel():
-    alumno = models.ForeignKey(AlumnoModel, on_delete=models.CASCADE)
-    docente = models.ForeignKey(DocenteModel, on_delete=models.CASCADE)
+class SesionModel(models.Model):
+    alumno = models.ForeignKey(AlumnoModel, on_delete=models.CASCADE, related_name='alumnos')
+    docente = models.ForeignKey(DocenteModel, on_delete=models.CASCADE, related_name='docentes')
     
     ESTADO_CHOICES = [
         ('pendiente', 'Pendiente'),
@@ -13,11 +13,12 @@ class SesionModel():
         ('rechazada', 'Rechazada'),
     ]
     
+    motivo_sesion = models.CharField(null=True,  max_length=255)
     estado = models.CharField(max_length=10, choices=ESTADO_CHOICES, default='pendiente')
-    comentario = models.TextField(blank=True, null=True)
-    fecha_sesion = models.DateTimeField(auto_now=True)
+    comentario = models.TextField(null=True)
+    fecha_registro = models.DateTimeField(auto_now=True)
     fecha_respuesta = models.DateTimeField()
-    
+    fecha_sesion = models.DateTimeField()
     objects = SesionManager()
     
     class Meta:
