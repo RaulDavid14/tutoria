@@ -37,3 +37,6 @@ class UsuarioModel(AbstractBaseUser, PermissionsMixin):
         db_table = 'usuarios'
         verbose_name = 'usuario'
         verbose_name_plural = 'usuarios'
+    
+    def __str__(self):
+        return f'{self.email} rol {self.rol}'

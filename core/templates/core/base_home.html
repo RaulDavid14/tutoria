@@ -25,7 +25,7 @@
                 </li>
 
                 <li class="nav-item mt-5">
-                    <a class="nav-link" href="{% url 'registro_sesion'%}">Tutor</a>
+                    <a class="nav-link" href="{% url 'sesion'%}">Tutor</a>
                 </li>
                 
                 <li class="nav-item mt-5">
@@ -42,6 +42,23 @@
             {% endif %}
             
             {% if user.rol == 'tutor' %}
+                <li class="nav-item mt-5">
+                    <div class="accordion" id="accordionTutor">
+                        <div class="accordion-item border-0">
+                            <h2 class="accordion-header" id="headingTutor">
+                                <button class="accordion-button collapsed p-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTutor" aria-expanded="false" aria-controls="collapseTutor">
+                                    <span class="nav-link">Alumnos</span>
+                                </button>
+                            </h2>
+                            <div id="collapseTutor" class="accordion-collapse collapse" aria-labelledby="headingTutor" data-bs-parent="#accordionTutor">
+                                <div class="accordion-body py-1 px-3">
+                                    <a class="nav-link" href="">Solicitudes</a>
+                                    <a class="nav-link" href="{% url 'docente_lista_alumnos' %}">Lista</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li class="nav-item mt-5">
                     <form method="post" action="{% url 'logout' %}">
                         {% csrf_token %}

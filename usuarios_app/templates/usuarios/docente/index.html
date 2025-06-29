@@ -1,0 +1,19 @@
+{% extends "core/base_home.html" %}
+
+{% block titulo %}Lista de alumnos{% endblock titulo %}
+
+{% block content %}
+    <h2>Alumnos del docente: {{ docente.usuario.nombres }} {{ docente.usuario.apellido_paterno }} {{ docente.usuario.apellido_materno }}</h2>
+
+    {% if docente.alumnos.all %}
+        <ul>
+            {% for alumno in docente.alumnos.all %}
+                <li>
+                    {{ alumno }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay alumnos asignados a este docente.</p>
+    {% endif %}
+{% endblock content %}
