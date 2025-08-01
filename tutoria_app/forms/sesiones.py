@@ -9,7 +9,7 @@ class SesionesForm(forms.ModelForm):
     )
     class Meta:
         model = SesionModel
-        exclude = ['alumno', 'docente', 'fecha_registro', 'fecha_respuesta']
+        exclude = ['alumno', 'docente', 'fecha_registro', 'fecha_respuesta', 'comentario', 'estado']
         widgets = {
             'fecha_sesion': forms.DateTimeInput(
                 attrs={
@@ -18,4 +18,3 @@ class SesionesForm(forms.ModelForm):
                 }
             )
         }
-        

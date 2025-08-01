@@ -1,7 +1,8 @@
 from django.urls import path
-from tutoria_app.views.sesiones import SesionesCV, SesionesView
+from tutoria_app.views.sesiones import SesionesView
+from tutoria_app.views.alumnos.lista import AlumnosLV
 
 urlpatterns = [
-    path('sesion', SesionesView.as_view(), name='sesion'),
-    #path('registro/sesion', SesionesCV.as_view(), name='registro_sesion'),
+    path('dashboard/sesiones', SesionesView.as_view(), name='sesion'),
+    path('docente/lista/alumnos', AlumnosLV.as_view(), name='lista_alumnos'),
 ]

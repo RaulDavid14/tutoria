@@ -25,11 +25,11 @@
                 </li>
 
                 <li class="nav-item mt-5">
-                    <a class="nav-link" href="{% url 'sesion'%}">Tutor</a>
+                    <a class="nav-link" href="{% url 'sesion'%}">Sesiones</a>
                 </li>
                 
                 <li class="nav-item mt-5">
-                    <a class="nav-link" href="">Sesiones</a>
+                    <a class="nav-link" href="">Tutor</a>
                 </li>
                 <li class="nav-item mt-5">
                     <form method="post" action="{% url 'logout' %}">
@@ -53,7 +53,7 @@
                             <div id="collapseTutor" class="accordion-collapse collapse" aria-labelledby="headingTutor" data-bs-parent="#accordionTutor">
                                 <div class="accordion-body py-1 px-3">
                                     <a class="nav-link" href="">Solicitudes</a>
-                                    <a class="nav-link" href="{% url 'docente_lista_alumnos' %}">Lista</a>
+                                    <a class="nav-link" href="{% url 'lista_alumnos' %}">Lista</a>
                                 </div>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                             <div id="collapseTutor" class="accordion-collapse collapse" aria-labelledby="headingTutor" data-bs-parent="#accordionTutor">
                                 <div class="accordion-body py-1 px-3">
                                     <a class="nav-link" href="{% url 'register_docente' %}">Altas</a>
-                                    <a class="nav-link" href="">Listado</a>
+                                    <a class="nav-link" href="{% url 'panel_lista_docentes' %}">Listado</a>
                                 </div>
                             </div>
                         </div>

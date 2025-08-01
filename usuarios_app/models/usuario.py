@@ -38,5 +38,11 @@ class UsuarioModel(AbstractBaseUser, PermissionsMixin):
         verbose_name = 'usuario'
         verbose_name_plural = 'usuarios'
     
+    def nombre_completo(self):
+        nombres = self.nombres if self.nombres else 'sin nombre'
+        apellido_paterno = self.apellido_paterno if self.apellido_paterno else 'sin apellido paterno'
+        apellido_materno = self.apellido_materno if self.apellido_materno else 'sin apellido materno'
+        return f'{apellido_paterno} {apellido_materno} {nombres}'
+    
     def __str__(self):
         return f'{self.email} rol {self.rol}'

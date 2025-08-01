@@ -6,10 +6,13 @@ class DatosSocioeconomicosModel(models.Model):
     trabaja = models.BooleanField(default=False)
     nombre_trabajo = models.CharField(max_length=100)
     apoyo_economico = models.BooleanField(default=True)
-        
+    vivienda_actual = models.CharField(max_length=100)        
+    
     
     class Meta:
         db_table = 'datos_socioeconomicos'
         verbose_name = 'Dato socioeconomico'
         verbose_name_plural = 'Datos socioeconomicos'
     
+    def __str__(self):
+        return f'datos socioeconomicos de {self.usuario.nombre_completo}'

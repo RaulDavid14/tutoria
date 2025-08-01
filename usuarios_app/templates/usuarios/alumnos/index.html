@@ -1,0 +1,59 @@
+{% extends 'core/base_home.html' %}
+
+{% block titulo %}
+  Listado de alumnos
+{% endblock titulo %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2>Listado de alumnos</h2>
+
+    {% if alumnos %}
+      <ul class="list-group mb-4">
+        {% for alumno in alumnos %}
+          <li class="list-group-item">
+            {{ alumno.usuario.nombre_completo }} - {{ alumno.programa_educativo }}
+          </li>
+        {% endfor %}
+      </ul>
+
+      <!-- Paginación -->
+      {% if is_paginated %}
+        <nav aria-label="Paginación">
+          <ul class="pagination justify-content-center">
+
+            {% if page_obj.has_previous %}
+              <li class="page-item">
+                <a class="page-link" href="?page=1">Primera</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+              </li>
+            {% endif %}
+
+            <li class="page-item disabled">
+              <span class="page-link">
+                Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+              </span>
+            </li>
+
+            {% if page_obj.has_next %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Última</a>
+              </li>
+            {% endif %}
+
+          </ul>
+        </nav>
+      {% endif %}
+
+    {% else %}
+      <div class="alert alert-info">
+        No hay alumnos registrados.
+      </div>
+    {% endif %}
+  </div>
+{% endblock content %}

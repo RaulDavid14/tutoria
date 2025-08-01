@@ -18,3 +18,6 @@ class DomicilioModel(models.Model):
         db_table = 'domicilio'
         verbose_name = 'Domicilio'
         verbose_name_plural = 'Domiclios'
+    
+    def __str__(self):
+        return f'domicilio de {self.usuario.nombre_completo}'

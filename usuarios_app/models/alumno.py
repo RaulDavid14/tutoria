@@ -16,4 +16,4 @@ class AlumnoModel(models.Model):
         verbose_name_plural = 'Alumnos'
     
     def __str__(self):
-        return self.usuario.email
+        return str(self.usuario.codigo)
