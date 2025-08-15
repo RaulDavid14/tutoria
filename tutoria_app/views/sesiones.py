@@ -5,7 +5,6 @@ from django.views import View
 from django.shortcuts import render, get_object_or_404, redirect
 
 from usuarios_app.models.alumno import AlumnoModel
-from usuarios_app.models.docente import DocenteModel
 
 class SesionesCV(LoginRequiredMixin, CreateView):
     template_name = 'sesiones/index.html'

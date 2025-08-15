@@ -11,6 +11,6 @@ class AlumnosLV(LoginRequiredMixin, ListView):
     def get_queryset(self):
         try:
             docente = self.request.user.datos  
-            return AlumnoModel.objects.filter(tutor=docente)
+            return AlumnoModel.objects.filter(tutor=docente).order_by('id')
         except:
             return AlumnoModel.objects.none()  
