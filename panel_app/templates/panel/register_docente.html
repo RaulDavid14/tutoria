@@ -1,0 +1,94 @@
+{% extends 'core/base_home.html' %}
+
+{% block titulo %}Alta Académico{% endblock titulo %}
+
+{% block content %}
+    <div class="container-fluid mt-4 row">
+        <form action="" method="post">
+            <div class="col-12">
+                <h2 class="mb-5 text-center">Datos de Académico</h2>
+            </div>
+            {% csrf_token %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <div class="col-12 row mt-3 mb-4">
+                <div class="form-floating col-4">
+                    {{form.codigo}}
+                    <label for="{{form.nombres.id_for_label}}">{{form.codigo.label}}</label>
+                    {% if form.codigo.errors %}
+                        <div class="text-danger">{{ form.codigo.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="form-floating col-5">
+                    {{form.carrera}}
+                    <label for="{{form.nombres.id_for_label}}">{{form.carrera.label}}</label>
+                    {% if form.carrera.errors %}
+                        <div class="text-danger">{{ form.carrera.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="form-floating col-3">
+                    {{form.fecha_nacimiento}}
+                    <label for="{{form.nombres.id_for_label}}">{{form.fecha_nacimiento.label}}</label>
+                    {% if form.fecha_nacimiento.errors %}
+                        <div class="text-danger">{{ form.fecha_nacimiento.errors }}</div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-12 row mt-3 mb-4"> 
+                <div class="form-floating col-4">
+                    {{form.nombres}}
+                    <label for="{{form.nombres.id_for_label}}">{{form.nombres.label}}</label>
+                    {% if form.nombres.errors %}
+                        <div class="text-danger">{{ form.nombres.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="form-floating col-4">
+                    {{form.apellido_paterno}}
+                    <label for="{{form.apellido_paterno.id_for_label}}">{{form.apellido_paterno.label}}</label>
+                    {% if form.apellido_paterno.errors %}
+                        <div class="text-danger">{{ form.apellido_paterno.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="form-floating col-4">
+                    {{form.apellido_materno}}
+                    <label for="{{form.apellido_materno.id_for_label}}">{{form.apellido_materno.label}}</label>
+                    {% if form.apellido_materno.errors %}
+                        <div class="text-danger">{{ form.apellido_materno.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="form-floating">
+                </div>
+            </div>
+            <div class="col-12 row mt-3 mb-4">                
+                <div class="form-floating col-3">
+                    {{form.celular}}
+                    <label for="{{form.celular.id_for_label}}">{{form.celular.label}}</label>
+                    {% if form.celular.errors %}
+                        <div class="text-danger">{{ form.celular.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="form-floating col-3">
+                    {{form.telefono}}
+                    <label for="{{form.telefono.id_for_label}}">{{form.telefono.label}}</label>
+                    {% if form.telefono.errors %}
+                        <div class="text-danger">{{ form.telefono.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="form-floating col-6">
+                    {{form.email}}
+                    <label for="{{form.email.id_for_label}}">{{form.email.label}}</label>
+                    {% if form.email.errors %}
+                        <div class="text-danger">{{ form.email.errors }}</div>
+                    {% endif %}
+                </div>
+            </div>
+            <button class="btn btn-primary mt-5" type="submit">Guardar</button>
+        </form>
+    </div>
+{% endblock content %}

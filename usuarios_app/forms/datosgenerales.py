@@ -7,11 +7,13 @@ class DatosGeneralesForm(forms.ModelForm):
     class Meta:
         model = UsuarioModel
         exclude = ['id'
-                   , 'rol'
-                   , 'fecha_creacion'
-                   , 'fecha_actualizacion'
+                   ,'rol'
+                   ,'fecha_creacion'
+                   ,'fecha_actualizacion'
                    ,'is_staff'
                    ,'is_active'
+                   ,'password'
+                   ,'estado_civil'
                 ]
         widgets = {
             'codigo' : forms.NumberInput(attrs=atributos)
