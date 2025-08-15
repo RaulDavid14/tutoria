@@ -1,24 +1,22 @@
 {% extends 'core/base_home.html' %}
 
-{% block titulo %}Datos Generales{% endblock titulo %}
+{% block titulo %}Alta Académico{% endblock titulo %}
 
 {% block content %}
-    {% if messages %}
-        <div class="container mt-3">
-            {% for message in messages %}
-                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                    {{ message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
-                </div>
-            {% endfor %}
-        </div>
-    {% endif %}
     <div class="container-fluid mt-4 row">
         <form action="" method="post">
             <div class="col-12">
-                <h2 class="mb-5 text-center">Datos Generales</h2>
+                <h2 class="mb-5 text-center">Datos de Académico</h2>
             </div>
             {% csrf_token %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
             <div class="col-12 row mt-3 mb-4">
                 <div class="form-floating col-4">
                     {{form.codigo}}
@@ -90,18 +88,6 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="col-12">
-                <h2 class="mt-5  mb-5 text-center">Domicilio</h2>
-            </div>
-            
-            <div class="col-12">
-                <h2 class="mt-5  mb-5 text-center">Domicilio Familiar</h2>
-            </div>
-            
-            <div class="col-12">
-                <h2 class="mt-5  mb-5 text-center">Datos Socieconomicos</h2>
-            </div>
-            
             <button class="btn btn-primary mt-5" type="submit">Guardar</button>
         </form>
     </div>
