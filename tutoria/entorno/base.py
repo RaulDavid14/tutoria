@@ -27,7 +27,6 @@ LOCAL_APPS = [
     'usuarios_app',
     'home_app',
     'landing_app',
-    'orm',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS  
