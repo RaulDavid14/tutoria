@@ -6,7 +6,7 @@ from django.contrib import messages
 
 class DatosGenerales(LoginRequiredMixin, UpdateView):
     login_url = 'login'
-    template_name = 'usuarios/datos_generales.html'
+    template_name = 'usuarios/datos_generales/datos_generales.html'
     form_class = DatosGeneralesForm
     
     #Obtiene el objeto a actualizar. 
@@ -30,6 +30,5 @@ class DatosGenerales(LoginRequiredMixin, UpdateView):
         
         return super().form_invalid(form)
     
-    #redirige a la misma ruta
     def get_success_url(self):
         return self.request.path
