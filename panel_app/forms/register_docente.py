@@ -1,18 +1,22 @@
 from django import forms
 from usuarios_app.models.usuario import UsuarioModel
+from usuarios_app.models.docente import DocenteModel
+from django.utils import timezone
 
 atributos = {'class' : 'form-control', 'placeholder' : ''}
-class DatosGeneralesForm(forms.ModelForm):
-    carrera = forms.CharField(widget=forms.TextInput(attrs=atributos))
+class RegisterDocenteForm(forms.ModelForm):
+    
+    #Perzonalizar en caso de querer validaciones extras.
+    def save(self, commit=True):
+        docente = super().save(commit=False)
+        docente.set_password(f'UdeG{timezone.now().year}')
+        
+        if commit:
+            docente.save()
+        return docente
     class Meta:
         model = UsuarioModel
-        exclude = ['id'
-                   , 'rol'
-                   , 'fecha_creacion'
-                   , 'fecha_actualizacion'
-                   ,'is_staff'
-                   ,'is_active'
-                ]
+        fields = ['codigo','nombres','apellido_paterno','apellido_materno','email','celular','telefono']
         widgets = {
             'codigo' : forms.NumberInput(attrs=atributos)
             
@@ -31,3 +35,4 @@ class DatosGeneralesForm(forms.ModelForm):
             ,'celular' : forms.NumberInput(attrs=atributos)
             ,'telefono' : forms.NumberInput(attrs=atributos)
         }
+    

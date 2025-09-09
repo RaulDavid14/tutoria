@@ -10,14 +10,7 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 
 
-INSTALLED_APPS = [
-    'core',
-    'panel_app',
-    'tutoria_app',
-    'catalogos_app',
-    'usuarios_app',
-    'home_app',
-    'landing_app',
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -25,6 +18,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+LOCAL_APPS = [
+    'core',
+    'panel_app',
+    'tutoria_app',
+    'catalogos_app',
+    'usuarios_app',
+    'home_app',
+    'landing_app',
+]
+
+INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS  
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

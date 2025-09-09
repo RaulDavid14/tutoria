@@ -24,7 +24,8 @@ class RegisterForm(forms.ModelForm):
                 ,'placeholder' : ''
             }),
         }
-    
+        
+    #Hacer validaciones adicionales sobre los campos
     def clean(self):
         cleaned_data = super().clean()
         password = cleaned_data.get("password")
@@ -33,6 +34,7 @@ class RegisterForm(forms.ModelForm):
         if password and confirm_password and password != confirm_password:
             self.add_error("confirm_password", "Las contraseñas no coinciden")
 
+    #Realizar alguna accion antes de guardar el objeto.
     def save(self, commit=True):
         user = super().save(commit=False)
         password = self.cleaned_data.get("password")
