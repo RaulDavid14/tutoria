@@ -3,6 +3,7 @@ from usuarios_app.forms.register import RegisterForm
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from usuarios_app.models.alumno import AlumnoModel
+from usuarios_app.models.domicilio import DomicilioModel
 from django.contrib import messages
 
 class RegisterUserAV(CreateView):
@@ -17,6 +18,10 @@ class RegisterUserAV(CreateView):
             usuario.save()
 
             AlumnoModel.objects.create(usuario=usuario)
+            DomicilioModel.objects.create(usuario=usuario)
+            
+            print('usuario creado con éxito.')
+            
             return redirect(self.success_url)
         except Exception as exception:
             messages.error(self.request, f'Error inesperado {str(exception)}')

@@ -2,7 +2,7 @@ from django import forms
 from usuarios_app.models.usuario import UsuarioModel
 
 atributos = {'class' : 'form-control', 'placeholder' : ''}
-class DatosGeneralesForm(forms.ModelForm):
+class UsuarioForm(forms.ModelForm):
     carrera = forms.CharField(widget=forms.TextInput(attrs=atributos))
     class Meta:
         model = UsuarioModel
