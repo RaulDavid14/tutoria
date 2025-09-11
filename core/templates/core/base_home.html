@@ -1,0 +1,119 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'core/vendor/css/sidebar.css' %}">
+{% endblock links %}
+
+{% block titulo %}{% endblock titulo %}
+
+{% block body %}
+    <div class="sidebar" id="sidebar">
+        <div class="d-flex justify-content-end p-2">
+            <button class="btn btn-light" id="toggleSidebar">
+                <img src="{% static 'core/vendor/img/justify.svg' %}" alt="menu"> 
+            </button>
+        </div>
+        <ul class="nav flex-column p-3 d-flex">
+            {% if user.rol == 'estudiante' %}
+                <li class="nav-item mt-5">
+                    <a class="nav-link" href="{% url 'home' %}">Inicio</a>
+                </li>
+                <li class="nav-item mt-5">
+                    <a class="nav-link" href="{% url 'datosgenerales' %}">Datos Generales</a>
+                </li>
+
+                <li class="nav-item mt-5">
+                    <a class="nav-link" href="{% url 'sesion'%}">Sesiones</a>
+                </li>
+                
+                <li class="nav-item mt-5">
+                    <a class="nav-link" href="">Tutor</a>
+                </li>
+                <li class="nav-item mt-5">
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="nav-link btn btn-link p-0" style="text-decoration: none;">
+                            Cerrar Sesión
+                        </button>
+                    </form>
+                </li>
+            {% endif %}
+            
+            {% if user.rol == 'tutor' %}
+                <li class="nav-item mt-5">
+                    <div class="accordion" id="accordionTutor">
+                        <div class="accordion-item border-0">
+                            <h2 class="accordion-header" id="headingTutor">
+                                <button class="accordion-button collapsed p-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTutor" aria-expanded="false" aria-controls="collapseTutor">
+                                    <span class="nav-link">Alumnos</span>
+                                </button>
+                            </h2>
+                            <div id="collapseTutor" class="accordion-collapse collapse" aria-labelledby="headingTutor" data-bs-parent="#accordionTutor">
+                                <div class="accordion-body py-1 px-3">
+                                    <a class="nav-link" href="">Solicitudes</a>
+                                    <a class="nav-link" href="{% url 'lista_alumnos' %}">Lista</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item mt-5">
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="nav-link btn btn-link p-0" style="text-decoration: none;">
+                            Cerrar Sesión
+                        </button>
+                    </form>
+                </li>
+            {% endif %}
+                
+            {% if user.rol == 'admin' %}
+                <li class="nav-item mt-5">
+                    <a class="nav-link" href="{% url 'dashboard_panel' %}">Inicio</a>
+                </li>
+                <li class="nav-item mt-5">
+                    <div class="accordion" id="accordionTutor">
+                        <div class="accordion-item border-0">
+                            <h2 class="accordion-header" id="headingTutor">
+                                <button class="accordion-button collapsed p-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTutor" aria-expanded="false" aria-controls="collapseTutor">
+                                    <span class="nav-link">Docentes</span>
+                                </button>
+                            </h2>
+                            <div id="collapseTutor" class="accordion-collapse collapse" aria-labelledby="headingTutor" data-bs-parent="#accordionTutor">
+                                <div class="accordion-body py-1 px-3">
+                                    <a class="nav-link" href="{% url 'register_docente' %}">Altas</a>
+                                    <a class="nav-link" href="{% url 'panel_lista_docentes' %}">Listado</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item mt-5">
+                    <a class="nav-link" href="{% url 'panel_catalogos' %}">Catálogos</a>
+                </li>
+                <li class="nav-item mt-5">
+                <form method="post" action="{% url 'panel_logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="nav-link btn btn-link p-0" style="text-decoration: none;">
+                        Cerrar Sesión
+                    </button>
+                </form>
+            </li>
+            {% endif %}
+            
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="container-fluid p-4">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div>
+    </div>
+{% endblock body %}
+
+{% block scripts %}
+    <script src="{% static 'core/vendor/js/sidebar.js' %}"></script>
+{% endblock scripts %}

@@ -1,15 +1,40 @@
-{% extends 'core/base.html' %}
+{% extends 'core/base_landing.html' %}
+{% load static %}
+{% block titulo %}Bienvenido de vuelta{% endblock titulo %}
 
+{% block content %}
+<div class="container-fluid min-vh-100 d-flex align-items-center">
+    <div class="row w-100">
+        <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center bg-light">
+            <div class="text-center p-4">
+                <img src="{% static 'usuarios/img/tutorito.png' %}" alt="tutorito">
+            </div>
+        </div>
 
-{% block titulo %}Bienvenido al sitio{% endblock titulo %}
+        <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
+            <div class="w-100" style="max-width: 400px;">
+                <h2 class="mb-4 text-center">Iniciar Sesión</h2>
+                <form method="post" novalidate>
+                    {% csrf_token %}
 
+                    <div class="form-floating mb-3">
+                        {{ form.username }}
+                        <label for="{{ form.username.id_for_label }}">Correo electrónico</label>
+                        <div class="text-danger small">{{ form.username.errors }}</div>
+                    </div>
 
-{% block body %}
-    <h2>Iniciar Sesión</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Entrar</button>
-    </form>
-{% endblock body %}
-    
+                    <div class="form-floating mb-3">
+                        {{ form.password }}
+                        <label for="{{ form.password.id_for_label }}">Contraseña</label>
+                        <div class="text-danger small">{{ form.password.errors }}</div>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">Entrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>        
+    </div>
+</div>
+{% endblock content %}

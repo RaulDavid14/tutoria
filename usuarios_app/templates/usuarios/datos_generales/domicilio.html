@@ -1,0 +1,58 @@
+{% extends 'usuarios/datos_generales/form.html' %}
+
+{% block titulo %}Domicilio{% endblock titulo %}
+
+
+{% block form %}
+    {% if messages %}
+        <div class="container mt-3">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+        <h2 class="mb-4 text-center mb-5">Domicilio</h2>
+        <form action="" method="post" class="row g-3">
+            {% csrf_token %}
+            <div class="row col-12 mb-4">
+                <div class="col-md-8 form-floating">
+                    {{ domicilio.calle }}
+                    <label for="{{ domicilio.calle.id_for_label }}">{{ domicilio.calle.label }}</label>
+                </div>
+                <div class="col-md-2 form-floating">
+                    {{ domicilio.no_ext }}
+                    <label for="{{ domicilio.no_ext.id_for_label }}">{{ domicilio.no_ext.label }}</label>
+                </div>
+                
+                <div class="col-md-2 form-floating">
+                    {{ domicilio.no_int }}
+                    <label for="{{ domicilio.no_int.id_for_label }}">{{ domicilio.no_int.label }}</label>
+                </div>
+            </div>
+            <div class="row col-12">
+                <div class="col-md-4 form-floating">
+                    {{ domicilio.cp }}
+                    <label for="{{ domicilio.cp.id_for_label }}">{{ domicilio.cp.label }}</label>
+                </div>
+                
+                <div class="col-md-4 form-floating">
+                    {{ domicilio.colonia }}
+                    <label for="{{ domicilio.colonia.id_for_label }}">{{ domicilio.colonia.label }}</label>
+                </div>
+                
+                <div class="col-md-4 form-floating">
+                    {{ domicilio.municipio }}
+                    <label for="{{ domicilio.municipio.id_for_label }}">{{ domicilio.municipio.label }}</label>
+                </div>
+            </div>
+
+            <div class="col-12 text-center mt-4">
+                <button type="submit" class="btn btn-outline-dark px-5">Guardar</button>
+            </div>
+
+        </form>
+{% endblock form %}

@@ -1,0 +1,3 @@
+from .catalogo import CatalogoModel
+from .programaeducativo import CatProgramaEducativoModel
+from .motivo_sesion import CatMotivoSesionModel
