@@ -1,13 +1,13 @@
 from django.views.generic import UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from usuarios_app.forms.datosgenerales import DatosGeneralesForm
+from usuarios_app.forms.usuario import UsuarioForm
 from usuarios_app.models import UsuarioModel
 from django.contrib import messages
 
 class DatosGenerales(LoginRequiredMixin, UpdateView):
     login_url = 'login'
     template_name = 'usuarios/datos_generales/datos_generales.html'
-    form_class = DatosGeneralesForm
+    form_class = UsuarioForm
     
     #Obtiene el objeto a actualizar. 
     def get_object(self):

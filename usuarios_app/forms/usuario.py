@@ -3,7 +3,7 @@ from usuarios_app.models.usuario import UsuarioModel
 
 atributos = {'class' : 'form-control', 'placeholder' : ''}
 class UsuarioForm(forms.ModelForm):
-    carrera = forms.CharField(widget=forms.TextInput(attrs=atributos))
+    #carrera = forms.CharField(widget=forms.TextInput(attrs=atributos))
     class Meta:
         model = UsuarioModel
         exclude = ['id'
