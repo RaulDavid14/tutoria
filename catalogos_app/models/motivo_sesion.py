@@ -7,4 +7,4 @@ class CatMotivoSesionModel(CatalogoModel):
         verbose_name_plural = 'Motivos Sesiones'
     
     def __str__(self):
-        return f'{self.abreviacion} {self.nombre}'
+        return f'{self.nombre}'
