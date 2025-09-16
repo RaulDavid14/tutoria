@@ -4,5 +4,9 @@ from tutoria_app.models.sesion import SesionModel
 class SesionSerializer(serializers.ModelSerializer):
     class Meta:
         model = SesionModel
-        fields= '__all__'
-    
+        exclude = [
+            'fecha_respuesta',
+            'alumno',
+            'docente',
+            'comentario'
+        ]
