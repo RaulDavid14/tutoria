@@ -41,6 +41,16 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,  # cantidad por defecto
 }
 
+# Tiempo en segundos (ejemplo: 30 minutos)
+SESSION_COOKIE_AGE = 30 * 60 
+
+# Para que la sesión se renueve en cada request
+SESSION_SAVE_EVERY_REQUEST = True  
+
+# Para que la cookie se borre al cerrar el navegador (opcional)
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True  
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
