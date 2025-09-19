@@ -12,13 +12,13 @@
                 {% csrf_token %}
 
                 <div class="mb-3">
-                    {{ sesiones.motivo_sesion.label_tag }}
-                    {{ sesiones.motivo_sesion }}
+                    {{ form.motivo_sesion.label_tag }}
+                    {{ form.motivo_sesion }}
                 </div>
 
                 <div class="mb-3">
-                    {{ sesiones.fecha_sesion.label_tag }}
-                    {{ sesiones.fecha_sesion }}
+                    {{ form.fecha_sesion.label_tag }}
+                    {{ form.fecha_sesion }}
                 </div>
         </div>
         <div class="modal-footer">

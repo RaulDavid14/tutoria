@@ -1,0 +1,1 @@
+PROJECT_KEY = 'django-insecure-k^)zu+#fy$=woxs96017*-j*xblgvz-%ium6@ii^7%7lrgn^0!'

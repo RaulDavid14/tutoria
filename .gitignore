@@ -45,4 +45,3 @@ Pipfile.lock
 .coverage
 .coverage.*
 
-**/credenciales.py
