@@ -1,5 +1,5 @@
 from django.db.models import Manager
-
+from django.db.models import Q
 
 class SesionManager(Manager):
     def sesionesFind(self, filter, usuario):
@@ -11,10 +11,14 @@ class SesionManager(Manager):
             queryset = queryset.filter(docente=usuario.docente.id)
       
         if filter.get('startDate') is not None and filter.get('endDate') is not None:
-            queryset = queryset.filter(fecha_registro__gte = filter.get('startDate'), fecha_registro__lte = filter.get('endDate'))
-        
+            queryset = queryset.filter(
+                fecha_registro__range=[filter['startDate'], filter['endDate']]
+            )
         if filter.get('estado') is not None:
             queryset = queryset.filter(estado = filter.get('estado'))
+        
+        if filter.get('buscar') is not None and usuario.rol == 'tutor':
+            pass
         
         queryset = queryset.order_by(filter['order'])
         return queryset

@@ -8,7 +8,8 @@ class SesionRequestSerializer(serializers.Serializer):
     startDate = serializers.DateTimeField(required=False, allow_null=True)
     endDate = serializers.DateTimeField(required=False, allow_null=True)
     estado = serializers.CharField(required=False, allow_blank=True)
-
+    buscar = serializers.CharField(required=False, allow_blank=True)
+    
     def validate(self, data):
         start_date = data.get("startDate")
         end_date = data.get("endDate")
