@@ -26,3 +26,6 @@ class SesionModel(models.Model):
         db_table = 'sesiones'
         verbose_name = 'Sesión'
         verbose_name_plural = 'Sesiones'
+    
+    def __str__(self):
+        return f'{self.id} {self.alumno.usuario.email}'
